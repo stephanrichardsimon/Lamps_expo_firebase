@@ -1,20 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// import { StatusBar } from 'expo-status-bar';
+// import { StyleSheet, Text, View } from 'react-native';
+import { firebaseConfig } from './Config';
+import { initializeApp } from "firebase/app";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {Routes} from './routes'
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+  
+  const app = initializeApp(firebaseConfig);
+  const Stack = createNativeStackNavigator();
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  // console.log(app)
+  // return (
+  //   <View style={styles.container}>
+  //     <Text>Open up App.js to start working on your teste!</Text>
+  //     <StatusBar style="auto" />
+  //   </View>
+  // );
+
+  return <Routes />
+}
