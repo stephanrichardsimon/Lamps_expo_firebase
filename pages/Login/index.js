@@ -13,7 +13,7 @@ const Login = () => {
   const handleSingIn = () => {
     setIsLoadin(true)
     if (email !== '') {
-      auth
+      auth()
         .signInWithEmailAndPassword(email, password)
         .then(() => {
           setIsLoadin(false)
